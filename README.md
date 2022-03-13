@@ -9,8 +9,7 @@ programs other than R if desired).
 
 #### Usage example:
 
-<pre><code>
-Rscript dissect_gtf.R --gtf path_to_standard.gtf --outdir path_to_desired_output_directory
+<pre><code>Rscript dissect_gtf.R --gtf path_to_standard.gtf --outdir path_to_desired_output_directory
 Rscript dissect_gtf.R --gtf path_to_standard.gtf --outdir path_to_desired_output_directory --biotype gene_biotype,transcript_biotype
 </code></pre>
 
