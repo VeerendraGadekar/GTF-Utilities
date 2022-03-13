@@ -24,6 +24,17 @@ option_list = list(
      metavar="character"),
 
   make_option(
+     c("--biotype"),
+     type="character",
+     default=NULL,
+     help=" Use this flag to get gene and transcript counts per biotype. 
+                 (Only when input GTF contains a biotype meta data). 
+                 This requires you to enter the right keys, which could be 
+	         either \"gene_type,transcript_type\" or \"gene_biotype,transcript_biotype\"
+		 depending upon your gtf file",
+     metavar="character"),
+
+  make_option(
      c("--outdir"),
      type="character",
      default=NULL,
@@ -41,8 +52,56 @@ if(length(args)==0) {
  }
 
 
-if(length(opt$gtf) != 0 | length(opt$TxDB) != 0){
-  
+if(length(opt$biotype != 0)){
+
+       cat("\nLoading R packages ... ")
+
+       suppressMessages(library(GenomicFeatures, warn.conflicts = F, quietly = T))
+       suppressMessages(library(data.table, warn.conflicts = F, quietly = T))
+
+       file <- opt$gtf
+       fname <-  gsub("\\..*","", basename(file))
+       wd <- opt$outdir
+
+       warning_file = file(paste(wd,"/",fname,"_dissect_gtf_biotypes.log", sep=""), open = "wt")
+       sink(warning_file, type = "message")
+
+       biotype_col <- unlist(strsplit(opt$biotype, ","))
+       gene_biotype_col <- biotype_col[1]
+       tx_biotype_col <- biotype_col[2]
+
+       cat("\nloading gtf file ...")
+       gtffile <- rtracklayer::import(file)
+ 
+       cat("\ngenerating biotype statistics ... ")
+
+       gene_type <- setDT(unique((as.data.frame(gtffile)[,c("gene_id", get("gene_biotype_col"))])))
+       setkeyv(gene_type,names(gene_type)[2])
+       gene_type_counts <- gene_type[, .(gene_counts = uniqueN(gene_id)), key(gene_type)]
+       gene_type_counts <- gene_type_counts[order(gene_counts, decreasing = TRUE)]
+
+       write.table(
+         gene_type_counts, 
+         file=paste(wd,"/",fname,"_gene_biotype_counts.tsv", sep=""), 
+         quote=F, sep="\t", row.names=F)
+
+       tx_type <- setDT(unique((as.data.frame(gtffile)[,c("transcript_id", get("tx_biotype_col"))])))
+       setkeyv(tx_type,names(tx_type)[2])    
+       tx_type_counts <- tx_type[, .(transcript_counts = uniqueN(transcript_id)), key(tx_type)]
+       tx_type_counts <- tx_type_counts[order(transcript_counts, decreasing = TRUE)]
+    
+       write.table(
+         tx_type_counts, 
+         file=paste(wd,"/",fname,"_transcript_biotype_counts.tsv", sep=""), 
+         quote=F, sep="\t", row.names=F)
+
+       gtffile <- NULL
+
+     cat("\nAll done!\n")
+     cat("\nCheck the log file for warnings, if any!\n")
+
+ }else{
+
     if(length(opt$TxDB) != 0){
 
         cat("\nLoading R packages ... ")
@@ -79,6 +138,7 @@ if(length(opt$gtf) != 0 | length(opt$TxDB) != 0){
       }
 
     cat("\nGenerating results ... ")
+
     genes <- genes(TxDb)
     transcripts <- transcripts(TxDb)
 
@@ -114,10 +174,4 @@ if(length(opt$gtf) != 0 | length(opt$TxDB) != 0){
     cat("\nAll done!\n")
     cat("\nCheck the log file for warnings, if any!\n")
 
-  }else{
-   
-   stop("Forgot the input GTF?!", call.=FALSE)
-
 }
-
-
