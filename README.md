@@ -29,9 +29,9 @@ Options:
 
 	--biotype=CHARACTER
 		     Use this flag to get gene and transcript counts per biotype. 
-             (Only when input GTF contains a biotype meta data). 
-             This requires you to enter the right keys, which could be 
-	         either "gene_type,transcript_type" or "gene_biotype,transcript_biotype"
+                     (Only when input GTF contains a biotype meta data). 
+                     This requires you to enter the right keys, which could be 
+	             either "gene_type,transcript_type" or "gene_biotype,transcript_biotype"
 		     depending upon your gtf file
 
 	--outdir=CHARACTER
