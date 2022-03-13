@@ -59,7 +59,7 @@ The script generates following files -
 
 ### DEPENDENCIES
 
-R packages - [GenomicFeatures](https://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html), [data.table](https://cran.r-project.org/web/packages/data.table/index.html), [optparse](https://cran.r-project.org/web/packages/optparse/index.html)
+R packages - [GenomicFeatures](https://bioconductor.org/packages/release/bioc/html/GenomicFeatures.html), [rtracklayer](https://bioconductor.org/packages/release/bioc/html/rtracklayer.html), [data.table](https://cran.r-project.org/web/packages/data.table/index.html), [optparse](https://cran.r-project.org/web/packages/optparse/index.html)
 
 
 ### AUTHOR
