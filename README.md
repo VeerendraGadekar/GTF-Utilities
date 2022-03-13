@@ -55,7 +55,7 @@ The script generates following files -
 * transcript level .bed file
 * per gene transcript count .tsv file
 * per transcript exon count .tsv file
-* gene and transcript counts per annotated biotypes (only when --biotype flag is used)
+* gene and transcript counts per annotated biotype (only when --biotype flag is used)
 * log file with any warnings generated while creating the TxDB object from .gtf file
 
 
