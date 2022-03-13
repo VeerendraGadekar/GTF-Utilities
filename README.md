@@ -4,7 +4,7 @@
 
 ### SYNOPSIS
 
-A utility to readily extract gene and transcript bed files, statistics on transcripts per gene and exons per transcript, and gene and transcript counts per annotated biotype. The script also generates a SQLite database file (which could be accessed from
+A utility to readily extract gene and transcript level bed files, statistics on transcripts per gene and exons per transcript, and gene and transcript counts per annotated biotype from a gtf file. The script also generates a SQLite database file (which could be accessed from
 programs other than R if desired).
 
 #### Usage example:
