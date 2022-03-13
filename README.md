@@ -38,7 +38,7 @@ Options:
 
 	-h, --help
 		     Show this help message and exit
-
+</code></pre>
 
 If a SQLite annotation database already exists, it can be used as input instead of a GTF file
 
