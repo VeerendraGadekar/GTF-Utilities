@@ -63,4 +63,4 @@ R packages - [GenomicFeatures](https://bioconductor.org/packages/release/bioc/ht
 
 
 ### AUTHOR
-Veerendra Gadekar, IBCH PAS, contact [gpveerendra09@gmail.com](mailto:gpveerendra09@gmail.com)
+Veerendra Gadekar, RTH Copenhagen, contact [gpveerendra09@gmail.com](mailto:gpveerendra09@gmail.com)
