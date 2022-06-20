@@ -63,4 +63,15 @@ R packages - [GenomicFeatures](https://bioconductor.org/packages/release/bioc/ht
 
 
 ### AUTHOR
-Veerendra Gadekar, RTH Copenhagen, contact [gpveerendra09@gmail.com](mailto:gpveerendra09@gmail.com)
+Veerendra Gadekar, RTH Copenhagen, contact [veer@rth.dk](mailto:veer@rth.dk) [gpveerendra09@gmail.com](mailto:gpveerendra09@gmail.com)
+
+### Copyright 2021
+
+Veerendra Gadekar veer@rth.dk
+
+GNU GENERAL PUBLIC LICENSE
+
+This is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License, either version 3 of the License, or (at your option) any later version. See http://www.gnu.org/licenses/.
+
+This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
